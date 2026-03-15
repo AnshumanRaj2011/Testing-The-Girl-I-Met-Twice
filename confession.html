@@ -34,7 +34,7 @@ text-shadow:
 
 #loveText{
 position:absolute;
-font-size:60px;
+font-size:70px;
 color:#ff4da6;
 font-style:italic;
 text-shadow:
@@ -116,33 +116,32 @@ opacity:0;
 
 <script>
 
-let count=3;
-const counter=document.getElementById("countdown");
-const love=document.getElementById("loveText");
-const audio=document.getElementById("loveAudio");
+let count = 3;
 
-const timer=setInterval(()=>{
+const counter = document.getElementById("countdown");
+const love = document.getElementById("loveText");
+const audio = document.getElementById("loveAudio");
 
-count--;
+const timer = setInterval(()=>{
 
-if(count>0){
-counter.innerHTML=count;
-}
+counter.innerHTML = count;
 
-else{
+if(count === 0){
 
 clearInterval(timer);
 
-counter.style.display="none";
+counter.style.display = "none";
 
 love.classList.add("show");
 
 audio.volume = 1;
 audio.play().catch(()=>{});
 
-const heartInterval = setInterval(createBgHeart,400);
+setInterval(createBgHeart,400);
 
 }
+
+count--;
 
 },1000);
 
