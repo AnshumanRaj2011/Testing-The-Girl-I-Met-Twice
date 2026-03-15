@@ -233,6 +233,43 @@ transform:translateY(-120vh) scale(2);
 opacity:0;
 }
 }
+
+  #questionBox{
+text-align:center;
+margin-top:40px;
+}
+
+#question{
+font-size:26px;
+color:#ff0066;
+margin-bottom:20px;
+}
+
+.choice button{
+margin:10px;
+padding:12px 25px;
+font-size:16px;
+border:none;
+border-radius:25px;
+background:#ff4d88;
+color:white;
+cursor:pointer;
+}
+
+#confession{
+display:none;
+font-size:36px;
+color:#ff0066;
+margin-top:30px;
+text-shadow:0 0 20px pink,0 0 40px #ff4da6;
+}
+
+#noText{
+display:none;
+font-size:18px;
+color:#555;
+margin-top:20px;
+}
   
   
 </style>
@@ -695,7 +732,20 @@ But now I know one thing.<br><br>
 
 I don’t just like you anymore.<br><br>
 
-<h1 id="confession"><i>I love you, Sakshi.</i></h1><br>
+<div id="questionBox">
+
+<h2 id="question">Do you believe this story?</h2>
+
+<div class="choice">
+<button onclick="showLove()">Yes ❤️</button>
+<button onclick="showNo()">No 😅</button>
+</div>
+
+<h1 id="confession"><i>I LOVE YOU SAKSHI ❤️</i></h1>
+
+<p id="noText">Hmm... maybe read the story again 😉</p>
+
+</div>
 
   </div>
 </div>
@@ -844,6 +894,23 @@ heart.remove();
 },1000);
 
 });
+
+  function showLove(){
+
+const confession=document.getElementById("confession");
+confession.style.display="block";
+
+heartExplosion();
+increaseMusic();
+
+}
+
+function showNo(){
+
+const text=document.getElementById("noText");
+text.style.display="block";
+
+}
 
   
   
