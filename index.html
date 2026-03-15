@@ -878,7 +878,51 @@ heart.remove();
 });
 
   function openConfession(){
+
+const screen = document.getElementById("loadingScreen");
+const text = document.getElementById("loadingText");
+
+screen.classList.add("show");
+
+const message = "L o a d i n g  t h e  a n s w e r . . .";
+let i = 0;
+
+function typeEffect(){
+
+if(i < message.length){
+text.innerHTML += message.charAt(i);
+i++;
+setTimeout(typeEffect,80);
+}
+
+}
+
+typeEffect();
+
+/* hearts filling screen */
+
+for(let i=0;i<150;i++){
+
+const heart=document.createElement("div");
+heart.innerHTML="❤";
+
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"vw";
+heart.style.bottom="-20px";
+heart.style.fontSize=(20+Math.random()*30)+"px";
+heart.style.color="#ff2e6e";
+heart.style.animation="heartExplosion 4s linear forwards";
+
+document.body.appendChild(heart);
+
+}
+
+/* open confession page */
+
+setTimeout(()=>{
 window.location.href="confession.html";
+},3500);
+
   }
 
 function showNo(){
@@ -907,6 +951,10 @@ noBtn.addEventListener("touchstart",moveNo);
   
 
 </script>
+  
+  <div id="loadingScreen">
+<h1 id="loadingText"></h1>
+  </div>
 
 </body>
 </html>
